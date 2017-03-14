@@ -17,7 +17,12 @@ global.buildPath = {
     base: './src'
   },
   jsServer: {
-    src: ['./src/app.js', './src/routes/**/*.js', './src/config/**/*.js'],
+    src: [
+      './src/app.js',
+      './src/routes/**/*.js',
+      './src/config/**/*.js',
+      './src/redux/**/*.js',
+      './src/react/**/*.js',],
     base: './src'
   },
   nodeModules: {

@@ -1,7 +1,14 @@
-doctype html
-html
-  head
-    title #{title}
-  body
+extends ./layout/default.pug
+
+block content
     h1
-    p homePage
+    p #{title}
+block content
+    div#root !{html}
+    script.
+        function escape2Html(str) {
+         var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
+         return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});
+        }
+        window.__INITIAL_STATE__ = JSON.parse(escape2Html("#{initState}"))
+    script(src='http://172.18.20.1:3003/build/main.js?v=123')

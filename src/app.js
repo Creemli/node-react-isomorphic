@@ -1,3 +1,6 @@
+
+process.env.NODE_ENV = 'development'; //TODO: for test
+
 import http from 'http';
 import Koa from 'koa';
 import path from 'path';
@@ -11,6 +14,7 @@ import koaOnError from 'koa-onerror';
 import Pug from 'koa-pug';
 import config from './config';
 import routes from './routes';
+import Mongo from 'koa-mongo';
 
 const app = new Koa();
 const bodyparser = Bodyparser();
@@ -20,6 +24,13 @@ const isDev = process.env.NODE_ENV === "development";
 app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
+
+app.use(Mongo({
+  uri: 'mongodb://localhost:27017/koa-db',
+  max: 100,
+  min: 1
+}));
+
 
 // static
 app.use(convert(koaStatic(path.join(__dirname, './static'), {

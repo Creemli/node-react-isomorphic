@@ -4,4 +4,5 @@ controller.page = async (ctx, next) => {
     title: 'demo page'
   })
 }
+
 export default controller

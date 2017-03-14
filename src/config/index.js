@@ -1,2 +1,2 @@
-const config = require('./' + process.env.NODE_ENV || 'production').default;
+const config = require('./' + process.env.NODE_ENV || 'production');
 export default config;
