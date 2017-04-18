@@ -61,6 +61,10 @@ router.get('/update', async (ctx, next) => {
     })
 });
 
+router.get('/admin/upload', async (ctx) => {
+    await ctx.render()
+});
+
 // demo page
 router.get('/*', async (ctx, next) => {
     await ctx.render('./index', {

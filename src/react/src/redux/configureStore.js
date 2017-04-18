@@ -16,13 +16,13 @@ export default function configureStore(initialState = {}, history) {
   )(createStore);
 
   const store = createStoreWithMiddleware(rootReducer);
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./rootReducer', () => {
-      const nextRootReducer = require('./rootReducer').default;
-      store.replaceReducer(nextRootReducer);
-    });
-  }
+  // if (module.hot) {
+  //   // Enable Webpack hot module replacement for reducers
+  //   module.hot.accept('./rootReducer', () => {
+  //     const nextRootReducer = require('./rootReducer').default;
+  //     store.replaceReducer(nextRootReducer);
+  //   });
+  // }
 
   return store;
 }

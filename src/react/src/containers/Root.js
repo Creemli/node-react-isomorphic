@@ -4,11 +4,12 @@
  */
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-// import { Router } from 'react-router';
+import { Router } from 'react-router';
 
 import { RouterContext } from 'react-router';
 
 
+const isNode = typeof window === 'undefined';
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -17,12 +18,19 @@ export default class Root extends React.Component {
     routes: PropTypes.element.isRequired,
   };
 
+// 区分客户端和服务端
   render() {
-    return (
+    return isNode ? (
         <Provider store={this.props.store}>
           <RouterContext {...this.props.routeProps}>
             {this.props.routes}
           </RouterContext>
+        </Provider>
+    ): (
+        <Provider store={this.props.store}>
+            <Router history={this.props.history}>
+                {this.props.routes}
+            </Router>
         </Provider>
     );
   }

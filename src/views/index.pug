@@ -11,4 +11,5 @@ block content
          return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});
         }
         window.__INITIAL_STATE__ = JSON.parse(escape2Html("#{initState}"))
-    script(src='http://172.18.20.1:3003/build/main.js?v=123')
+
+    script(src='http://localhost:3003/build/main.js')

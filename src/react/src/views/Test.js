@@ -26,7 +26,7 @@ class Test extends Component {
 
   render() {
     return (<div className="test" onTouchTap={::this.goTo}>Hello World!
-      <div className="styleCore">测试</div>
+      <div className="styleCore">大ddddd</div>
     </div>);
   }
 
